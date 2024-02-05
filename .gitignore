@@ -1,1 +1,2 @@
-dataprocessing/data/GuitarSet
+dataprocessing/data
+__pycache__/
