@@ -1,4 +1,5 @@
 import os
+import torch
 
 # Get the directory where config.py is located
 CONFIG_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -9,6 +10,10 @@ BASE_DATA_DIR = os.path.normpath(BASE_DATA_DIR)
 # Define other constants and configurations
 HOP_LENGTH = 512
 SAMPLE_RATE = 44100
+BATCH_SIZE = 32
+NUM_EPOCHS = 10
+LEARNING_RATE = 0.001
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Define paths to specific directories if needed
 ANNOTATION_DIR = os.path.join(BASE_DATA_DIR, 'annotation')
