@@ -3,6 +3,7 @@ import torch
 
 # Get the directory where config.py is located
 CONFIG_DIR = os.path.dirname(os.path.abspath(__file__))
+CACHE_DIR = os.path.join(CONFIG_DIR, 'cache', 'guitarset')
 PROJECT_ROOT = os.path.join(CONFIG_DIR, '..', '..')
 BASE_DATA_DIR = os.path.join(PROJECT_ROOT, 'song2tab', 'dataprocessing', 'data')
 BASE_DATA_DIR = os.path.normpath(BASE_DATA_DIR)
@@ -12,7 +13,12 @@ HOP_LENGTH = 512
 SAMPLE_RATE = 44100
 BATCH_SIZE = 32
 NUM_EPOCHS = 10
+NUM_FRAMES = 200
+ITERATIONS = 2500
+NUM_FOLDS = 5
+CHECKPOINTS = 50
 LEARNING_RATE = 0.001
+SEED = 0
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Define paths to specific directories if needed
