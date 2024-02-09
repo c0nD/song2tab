@@ -1,2 +1,6 @@
 dataprocessing/data
 __pycache__/
+events*
+*.pt
+cache/
+*.txt
