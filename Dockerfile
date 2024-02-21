@@ -1,22 +1,26 @@
-# Official lightweight Python image.
+# Use a base image with Python installed
 FROM python:3.8-slim
 
-# Set environment variables.
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set the working directory in the container to /app.
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the dependencies file to the working directory.
+# # Install system dependencies
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends gcc g++ libsndfile1 && \
+#     rm -rf /var/lib/apt/lists/*
+
+# Copy the requirements.txt file into the container at /app
 COPY requirements.txt .
 
-# Install any dependencies.
-RUN pip install --no-cache-dir -r requirements.txt
+# Install amt-tools without its dependencies
+RUN pip install --no-deps amt-tools
+
+RUN pip install --no-cache-dir $(grep -v 'evdev' requirements.txt)
 
 # Copy the content of the local src directory to the working directory.
-COPY . .
+COPY src/ src/
+COPY dataprocessing/ dataprocessing/
+COPY models/ models/
 
-# Command to run on container start.
-# Replace `app.py` with the script you use to run your application.
-CMD ["python", "models/experimentation/train_tab_cnn.py"]
+# Specify the command to run on container start
+CMD [ "python", "./models/experimentation/train_tab_cnn.py"]
