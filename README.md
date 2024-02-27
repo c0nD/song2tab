@@ -18,6 +18,18 @@ for you.
 Otherwise, the pre-trained models will be included in the repo, and can be used without needing
 to install the original training dataset.
 
+## My Contributions
+My goal with this project is to improve on already existing ideas within the automatic music
+transcription academic space. By using Frank Cwitkowitz's `amt-tools`, the framework to
+build a model has been fairly straight-forward.
+
+With that said, my goal is to improve upon how the inputs are transformed through
+the TabCNN model. By updating how the VQT works to augment data for a more robust model that
+accounts for electric guitars, effects, background noise, etc, while also increasing
+the model's complexity with extra layers, I aim to create a stronger, more robust model than the example TabCNN.
+
+Additionally, my goal is to host this back-end model on a web-based front-end for others
+to access and get tablature from other websites or audio files.
 
 ## Annotations
 - [Dataset](https://guitarset.weebly.com/)
