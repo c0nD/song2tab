@@ -3,9 +3,10 @@ from torch.utils.data import DataLoader
 from torch.optim import Adadelta
 import os, sys
 
+from cqt import CQT
+
 from amt_tools.datasets import GuitarSet
 from amt_tools.models import TabCNN
-from amt_tools.features import CQT
 from amt_tools.train import train
 from amt_tools.transcribe import ComboEstimator, TablatureWrapper, StackedMultiPitchCollapser
 from amt_tools.evaluate import ComboEvaluator, LossWrapper, MultipitchEvaluator, TablatureEvaluator, SoftmaxAccuracy
