@@ -1,4 +1,4 @@
-# Author: Frank Cwitkowitz <fcwitkow@ur.rochester.edu>
+# Original Author: Frank Cwitkowitz <fcwitkow@ur.rochester.edu>
 
 # My imports
 from amt_tools.models.common import TranscriptionModel, SoftmaxGroups
