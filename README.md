@@ -7,6 +7,12 @@ format for guitars.
 
 
 ## Setup
+Install and activate the conda environment to ensure you have all the correct dependencies:
+```sh
+conda env create -f environment.yml -n song2tab_env
+conda activate song2tab_env
+```
+
 The given dataset being used can be found in the annotations section. Due to the large
 size of this dataset, I cannot include it in this repo and you must download and extract
 each containing folder to `dataprocessing/data` if you wish to replicate the results/modify
