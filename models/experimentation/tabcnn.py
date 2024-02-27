@@ -68,10 +68,6 @@ class TabCNN(TranscriptionModel):
             nn.Conv2d(nf2, nf3, ks3),
             # Activation function
             nn.ReLU(),
-            # 4th convolution
-            nn.Conv2d(nf3, nf4, ks4),
-            # Activation function
-            nn.ReLU(),
             # 1st reduction
             nn.MaxPool2d(rd1),
             # 1st dropout
