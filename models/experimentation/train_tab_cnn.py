@@ -1,6 +1,6 @@
 import torch
 from torch.utils.data import DataLoader
-from torch.optim import Adadelta
+from torch.optim import Adam
 import os, sys
 
 from cqt import CQT
@@ -97,7 +97,7 @@ def run_training():
         tabcnn.train()
 
         # Define the optimizer
-        optimizer = Adadelta(tabcnn.parameters(), lr=1.0)
+        optimizer = Adam(tabcnn.parameters(), lr=1.0)
 
         # Training the model
         model_dir = os.path.join(ROOT_DIR, 'models', f'fold-{k}')
