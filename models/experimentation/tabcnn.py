@@ -27,11 +27,20 @@ class TabCNN(TranscriptionModel):
         # Initialize a flag to check whether to pad input features
         self.online = False
 
+
+        """
+        # Pseudocode
+    1. Check the value of nf1 and groups
+    2. If groups is not specified, it defaults to 1, and nf1 can be any integer
+    3. If groups is specified, ensure nf1 is divisible by groups
+    4. If nf1 is not divisible by groups, adjust either nf1 or groups to make them compatible
+        """
+
         # Number of filters for each stage
         nf1 = 32 * self.model_complexity
         nf2 = 64 * self.model_complexity
         nf3 = 128 * self.model_complexity
-        nf4 = nf3
+        nf4 = 128 * self.model_complexity
 
         # Kernel size for each stage
         ks1 = (3, 3)
