@@ -1,6 +1,6 @@
 import torch
 from torch.utils.data import DataLoader
-from torch.optim import Adadelta
+from torch.optim import Adadelta, Adam
 import os, sys
 
 from amt_tools.datasets import GuitarSet
@@ -15,7 +15,7 @@ from amt_tools.tools import GuitarProfile, seed_everything
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
-from dataprocessing.config import SAMPLE_RATE, BATCH_SIZE, HOP_LENGTH, NUM_FRAMES, ITERATIONS, CHECKPOINTS, SEED, NUM_FOLDS, CACHE_DIR, BASE_DATA_DIR, DEVICE as GPU_ID
+from dataprocessing.config import SAMPLE_RATE, BATCH_SIZE, HOP_LENGTH, NUM_FRAMES, ITERATIONS, LEARNING_RATE, CHECKPOINTS, SEED, NUM_FOLDS, CACHE_DIR, BASE_DATA_DIR, DEVICE as GPU_ID
 from models.production.basic_cnn import BasicCNN
 
 # Set the root directory for saving the experiment files
@@ -96,7 +96,7 @@ def run_training():
         tabcnn.train()
 
         # Define the optimizer
-        optimizer = Adadelta(tabcnn.parameters(), lr=1.0)
+        optimizer = Adam(tabcnn.parameters(), lr=LEARNING_RATE)
 
         # Training the model
         model_dir = os.path.join(ROOT_DIR, 'models', f'fold-{k}')
