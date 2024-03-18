@@ -1,11 +1,16 @@
 import torch
 from torch.utils.data import DataLoader
+<<<<<<< HEAD
 from torch.optim import Adadelta, Adam
+=======
+from torch.optim import Adam
+>>>>>>> 84c839bf5109e140ed5b4d63778b50ced8776470
 import os, sys
 
+from cqt import CQT
+from tabcnn import TabCNN
+
 from amt_tools.datasets import GuitarSet
-from amt_tools.models import TabCNN
-from amt_tools.features import CQT
 from amt_tools.train import train
 from amt_tools.transcribe import ComboEstimator, TablatureWrapper, StackedMultiPitchCollapser
 from amt_tools.evaluate import ComboEvaluator, LossWrapper, MultipitchEvaluator, TablatureEvaluator, SoftmaxAccuracy

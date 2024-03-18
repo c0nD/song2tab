@@ -26,7 +26,7 @@ class BasicCNN(TranscriptionModel):
         self.conv3 = nn.Conv2d(nf2, nf3, kernel_size=3, stride=1, padding=1)
         
         # Define the fully connected layers
-        self.fc1 = nn.Linear(nf3 * 6 * 6, 1000)  # Adjust the dimensions based on your data and model structure
+        self.fc1 = nn.Linear(nf3 * 6 * 6, 1000)
         self.fc2 = nn.Linear(1000, self.num_classes)
         
     

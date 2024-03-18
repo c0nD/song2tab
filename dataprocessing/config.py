@@ -11,8 +11,8 @@ BASE_DATA_DIR = os.path.normpath(BASE_DATA_DIR)
 # Define other constants and configurations
 HOP_LENGTH = 512
 SAMPLE_RATE = 22050
-BATCH_SIZE = 32
-NUM_EPOCHS = 10
+BATCH_SIZE = 48
+NUM_EPOCHS = 12
 NUM_FRAMES = 200
 ITERATIONS = 1250
 NUM_FOLDS = 4
