@@ -16,7 +16,7 @@ conda activate song2tab_env
 ### FFmpeg
 [librosa](https://librosa.org/doc/main/install.html#ffmpeg) requires an [https://www.ffmpeg.org/](https://www.ffmpeg.org/) install -- please follow their documentation to install, or use the following:
 > **Windows**: `choco install ffmpeg`  
-> **Linux/Unix/OSX** `sudo apt-get install ffmpeg` (already with conda installations) 
+> **Linux/Unix/OSX** `sudo apt-get install ffmpeg` (already with conda installations)  
 > **Mac** `brew install ffmpeg`  
 
 ### Windows extra step:
