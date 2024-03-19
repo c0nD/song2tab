@@ -1,2 +1,3 @@
 # Direct dependencies
 amt-tools
+pysoundfile
