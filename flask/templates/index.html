@@ -4,10 +4,14 @@
     <title>Model Input</title>
 </head>
 <body>
-    <form action="/predict" method="post">
-        <label for="input_data">Input Data:</label>
+    <form action="/process-audio" method="post"> <!-- Update the action here -->
+        <label for="input_data">YouTube URL:</label>
         <input type="text" id="input_data" name="input_data_field">
-        <input type="submit" value="Run Model">
+        <label for="start_time">Start Time:</label>
+        <input type="text" id="start_time" name="start_time" value="0">
+        <label for="end_time">End Time:</label>
+        <input type="text" id="end_time" name="end_time" value="60">
+        <input type="submit" value="Process Audio">
     </form>
 </body>
 </html>
