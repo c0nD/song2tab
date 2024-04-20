@@ -1,16 +1,11 @@
 import torch
 from torch.utils.data import DataLoader
-<<<<<<< HEAD
-from torch.optim import Adadelta, Adam
-=======
-from torch.optim import Adam
->>>>>>> 84c839bf5109e140ed5b4d63778b50ced8776470
+from torch.optim import Adadelta
 import os, sys
 
-from cqt import CQT
-from tabcnn import TabCNN
-
 from amt_tools.datasets import GuitarSet
+from amt_tools.models import TabCNN
+from amt_tools.features import CQT
 from amt_tools.train import train
 from amt_tools.transcribe import ComboEstimator, TablatureWrapper, StackedMultiPitchCollapser
 from amt_tools.evaluate import ComboEvaluator, LossWrapper, MultipitchEvaluator, TablatureEvaluator, SoftmaxAccuracy
@@ -20,7 +15,7 @@ from amt_tools.tools import GuitarProfile, seed_everything
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
-from dataprocessing.config import SAMPLE_RATE, BATCH_SIZE, HOP_LENGTH, NUM_FRAMES, ITERATIONS, LEARNING_RATE, CHECKPOINTS, SEED, NUM_FOLDS, CACHE_DIR, BASE_DATA_DIR, DEVICE as GPU_ID
+from dataprocessing.config import SAMPLE_RATE, BATCH_SIZE, HOP_LENGTH, NUM_FRAMES, ITERATIONS, CHECKPOINTS, SEED, NUM_FOLDS, CACHE_DIR, BASE_DATA_DIR, DEVICE as GPU_ID
 from models.production.basic_cnn import BasicCNN
 
 # Set the root directory for saving the experiment files
@@ -101,7 +96,7 @@ def run_training():
         tabcnn.train()
 
         # Define the optimizer
-        optimizer = Adam(tabcnn.parameters(), lr=LEARNING_RATE)
+        optimizer = Adadelta(tabcnn.parameters(), lr=1.0)
 
         # Training the model
         model_dir = os.path.join(ROOT_DIR, 'models', f'fold-{k}')
